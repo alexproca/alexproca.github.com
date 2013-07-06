@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://alexproca.github.io
+url: http://alexproca.ro
 title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+subtitle: Another professional blog
+author: Alex Proca
 simple_search: http://google.com/search
 description:
 
