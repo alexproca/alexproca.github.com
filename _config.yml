@@ -97,4 +97,7 @@ disqus_show_comment_count: false
 google_analytics_tracking_id:
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
+
+# Facebook Coments
+facebook_appid: 165913843590702
