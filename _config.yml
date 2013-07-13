@@ -3,11 +3,12 @@
 # ----------------------- #
 
 url: http://alexproca.ro
-title: My Octopress Blog
-subtitle: Another professional blog
+title: Alex Proca
+subtitle: technology passionate
 author: Alex Proca
 simple_search: http://google.com/search
 description:
+simple_search: 
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -101,3 +102,16 @@ facebook_like: true
 
 # Facebook Coments
 facebook_appid: 165913843590702
+
+#Projects Section
+show_git_projects: false
+
+#Found on section
+github_user: alexproca
+#stackoverflow_user
+linkedin_user: alexproca
+#twitter_user
+googleplus_user: 117273050878913051239
+#quora_user
+email: alex.proca@gmail.com
+facebook_user: alex.proca

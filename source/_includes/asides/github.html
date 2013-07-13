@@ -1,4 +1,4 @@
-{% if site.github_user %}
+{% if site.show_git_projects == true %}
 <h2>recent public projects</h2>
 <dl id="gh_repos" class="dl-horizontal" data-github-user="{{ site.github_user }}" data-github-repo-count="{{ site.github_repo_count }}" data-github-skip-forks="{{ site.github_skip_forks }}">
   <dd class="loading">Status updating...</dd>
