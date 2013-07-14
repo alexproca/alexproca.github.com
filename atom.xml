@@ -4,7 +4,7 @@
   <title><![CDATA[Alex Proca]]></title>
   <link href="http://alexproca.ro/atom.xml" rel="self"/>
   <link href="http://alexproca.ro/"/>
-  <updated>2013-07-14T15:58:51+03:00</updated>
+  <updated>2013-07-14T17:12:47+03:00</updated>
   <id>http://alexproca.ro/</id>
   <author>
     <name><![CDATA[Alex Proca]]></name>
@@ -12,6 +12,81 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Package an external library as an OSGi bundle]]></title>
+    <link href="http://alexproca.ro/blog/2013/07/14/package-osgi-bundle/"/>
+    <updated>2013-07-14T16:18:00+03:00</updated>
+    <id>http://alexproca.ro/blog/2013/07/14/package-osgi-bundle</id>
+    <content type="html"><![CDATA[<p>In an OSGi environment each plug-in has its own class-loader. If you use in your project an external dependency first thought is to embed the dependency in your bundle and that&rsquo;s all. This can lead to hard to debug ClassCastExceptions.</p>
+
+<!-- more -->
+
+
+<p>Scenario:</p>
+
+<ol>
+<li>You use an external library is called <strong>ZAB</strong></li>
+<li>You make a library called <strong>FOO</strong> which embeds the <strong>ZAB</strong> library</li>
+<li>Six months later somebody else create a second library <strong>BAR</strong> also embedding <strong>ZAB</strong></li>
+<li>Then when you want to assembly the product and <strong>FOO</strong> provides some objects of class Zab.class to <strong>BAR</strong> library but the code will throw ClassCastException because the object of Zab.class was created in a different class-loader</li>
+</ol>
+
+
+<p>The correct approach is to package <strong>ZAB</strong> as a separate OSGi Bundle
+<img src="http://alexproca.ro/resources/trouble-osgi-library-inclusion.png" alt="Bundle external libraries" /></p>
+
+<p>Fortunately maven bundle plug-in exists and packaging as OSGi bundle is piece of cake. Here you can see a simple configuration for packaging opencsv version 2.3 as an OSGi bundle.</p>
+
+<p>If you want to try it out, install latest maven and copy the following code content in a pom.xml, then run <strong>mvn clean install</strong>. You will end up having a target folder and inside an OSGi bundle called <strong>dev.anproca.example.opencsv-2.3.0-SNAPSHOT.jar</strong></p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;dev.anproca.example&lt;/groupId&gt;
+    &lt;artifactId&gt;dev.anproca.example.opencsv&lt;/artifactId&gt;
+    &lt;version&gt;2.3.0-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;bundle&lt;/packaging&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.felix&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-bundle-plugin&lt;/artifactId&gt;
+                &lt;extensions&gt;true&lt;/extensions&gt;
+                &lt;configuration&gt;
+                    &lt;instructions&gt;
+                        &lt;_exportcontents&gt;*&lt;/_exportcontents&gt;
+                        &lt;Embed-Dependency&gt;*&lt;/Embed-Dependency&gt;
+                        &lt;Import-Package&gt;&lt;/Import-Package&gt; 
+                        &lt;Bundle-ClassPath&gt;{maven-dependencies}&lt;/Bundle-ClassPath&gt;
+                        &lt;Embed-Transitive&gt;true&lt;/Embed-Transitive&gt;
+                        &lt;Embed-Directory&gt;jars&lt;/Embed-Directory&gt;
+                        &lt;Bundle-SymbolicName&gt;${project.artifactId}&lt;/Bundle-SymbolicName&gt;
+                        &lt;_failok&gt;true&lt;/_failok&gt;
+                        &lt;_nouses&gt;true&lt;/_nouses&gt;
+                    &lt;/instructions&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;net.sf.opencsv&lt;/groupId&gt;
+            &lt;artifactId&gt;opencsv&lt;/artifactId&gt;
+            &lt;version&gt;2.3&lt;/version&gt;
+        &lt;/dependency&gt;            
+    &lt;/dependencies&gt;
+
+&lt;/project&gt;
+</code></pre>
+
+<p>For more advanced configurations please visit <a href="http://felix.apache.org/site/apache-felix-maven-bundle-plugin-bnd.html" title="Maven Bundle Plugin">maven bundle plug-in website</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[So you want RCP]]></title>
