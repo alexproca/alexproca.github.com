@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Alex Proca]]></title>
-  <link href="http://alexproca.ro/atom.xml" rel="self"/>
+  <title><![CDATA[Category: OSGi | Alex Proca]]></title>
+  <link href="http://alexproca.ro/blog/categories/osgi/atom.xml" rel="self"/>
   <link href="http://alexproca.ro/"/>
   <updated>2013-07-14T15:43:47+03:00</updated>
   <id>http://alexproca.ro/</id>
@@ -64,7 +64,7 @@
 
 <p>The correct approach to this problem is to bundle your external jar of choice as an OSGi bundle. For this task you can use <a href="http://felix.apache.org/site/apache-felix-maven-bundle-plugin-bnd.html" title="Maven Bundle Plugin">maven bundle plug-in</a> and create a p2 site with all needed libraries.</p>
 
-<p><img src="http://alexproca.ro/resources/trouble-osgi-library-inclusion.png" alt="Class Cast Trouble" /></p>
+<p><img src="/resources/trouble-osgi-library-inclusion.png" alt="Class Cast Trouble" /></p>
 
 <h2>Automate build of a product and further updates</h2>
 
