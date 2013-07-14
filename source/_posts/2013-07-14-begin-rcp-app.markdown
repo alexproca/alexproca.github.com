@@ -2,7 +2,7 @@
 layout: post
 title: "So you want RCP"
 date: 2013-07-14 13:38
-comments: true
+comments: false
 categories:
  - OSGi
  - RCP
@@ -52,7 +52,7 @@ The correct approach to this problem is to bundle your external jar of choice as
 
 ##Automate build of a product and further updates 
 
-You can automate the assembly of your p2 site and assembly of the p2 site. But here are some tricks. P2 support can be found in artifactory pro and nexus, but for artifactory pro you have to pay license and if you want nexus [here is "how to"][nexus-p2]. If you want something simple you can configure a webdav server, with tomcat for example and use maven wagon webdav to upload the p2 generated site.
+You can automate the assembly of your product and assembly of the p2 site. But here are some tricks. P2 support can be found in artifactory pro and nexus, but for artifactory pro you have to pay license and if you want nexus [here is "how to"][nexus-p2]. If you want something simple you can configure a webdav server, with tomcat for example and use maven wagon webdav to upload the p2 generated site.
 
 In the product assembly phase you specify which are your bundles and tycho will build for you products for windows, linux and macos.
 
