@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="CPVCodes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Division" type="Division" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="Division">
+        <xs:complexContent>
+            <xs:extension base="Product">
+                <xs:sequence>
+                    <xs:element name="Childrens" type="Group" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Group">
+        <xs:complexContent>
+            <xs:extension base="Product">
+                <xs:sequence>
+                    <xs:element name="Childrens" type="Class" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Class">
+        <xs:complexContent>
+            <xs:extension base="Product">
+                <xs:sequence>
+                    <xs:element name="Childrens" type="Category" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Category">
+        <xs:complexContent>
+            <xs:extension base="Product">
+                <xs:sequence>
+                    <xs:element name="Childrens" type="Product" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Product">
+        <xs:sequence>
+            <xs:element name="Code" type="xs:string" />
+            <xs:element name="Description" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="language" type="CountryName" use="required" />
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="VATQuota" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="country" type="CountryName" />
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="CountryName">
+        <xs:annotation>
+            <xs:documentation>Alpha2 code</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AT" />
+            <xs:enumeration value="BE" />
+            <xs:enumeration value="BG" />
+            <xs:enumeration value="HR" />
+            <xs:enumeration value="CY" />
+            <xs:enumeration value="CZ" />
+            <xs:enumeration value="DK" />
+            <xs:enumeration value="EE" />
+            <xs:enumeration value="FI" />
+            <xs:enumeration value="FR" />
+            <xs:enumeration value="DE" />
+            <xs:enumeration value="GR" />
+            <xs:enumeration value="HU" />
+            <xs:enumeration value="IE" />
+            <xs:enumeration value="IT" />
+            <xs:enumeration value="LV" />
+            <xs:enumeration value="LT" />
+            <xs:enumeration value="LU" />
+            <xs:enumeration value="MT" />
+            <xs:enumeration value="NL" />
+            <xs:enumeration value="PL" />
+            <xs:enumeration value="PT" />
+            <xs:enumeration value="RO" />
+            <xs:enumeration value="SK" />
+            <xs:enumeration value="SI" />
+            <xs:enumeration value="ES" />
+            <xs:enumeration value="SE" />
+            <xs:enumeration value="GB" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

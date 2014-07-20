@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CPVCodes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://gist.github.com/alexproca/8488021/raw/2054eb8bbb8ec19b54e87fbba6763bc6b2d57041/CPVCodes.xsd">
+    <Division>
+        <Code>string</Code>
+        <Description language="SK">string</Description>
+        <Description language="CZ">string</Description>
+        <VATQuota>4658.25491</VATQuota>
+        <VATQuota country="PT">-1949.54509</VATQuota>
+        <VATQuota country="HU">9508.71491</VATQuota>
+        <VATQuota>-2242.96509</VATQuota>
+        <Childrens>
+            <Code>string</Code>
+            <Description language="HU">string</Description>
+            <Childrens>
+                <Code>string</Code>
+                <Description language="SI">string</Description>
+                <Childrens>
+                    <Code>string</Code>
+                    <Description language="FI">string</Description>
+                    <Childrens>
+                        <Code>string</Code>
+                        <Description language="LU">string</Description>
+                    </Childrens>
+                </Childrens>
+            </Childrens>
+        </Childrens>
+    </Division>
+</CPVCodes>

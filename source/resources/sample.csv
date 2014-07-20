@@ -1,0 +1,7 @@
+cpv,denumire,tva,pret fara tva,pret cu tva,valoarea tva
+abc,mere,24,12,,
+123,pere,24,,15,
+abc,prune,24,,,2
+def,dude,24,14,,
+def,prostocale,24,,16,
+123,masline,,,,3
